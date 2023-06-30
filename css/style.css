@@ -1,6 +1,49 @@
-/* GLOBAL */
-:root{}
+/* FONTS */
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v12-cyrillic_latin-regular.woff2') format('woff2'); 
+}
 
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v12-cyrillic_latin-500.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v12-cyrillic_latin-600.woff2') format('woff2'); 
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/inter-v12-cyrillic_latin-700.woff2') format('woff2'); 
+}
+
+
+  /* CUSTOM PROPS */
+:root{ 
+  --body-bg: #f1f4ff;
+  --green: #4dc490;
+  --purple: #655af2;
+  --red: #f03535;
+  --light: #fff;
+  --text-color: #000;
+}
+
+
+/* GLOBAL */
 
 html{
   box-sizing: border-box;
@@ -20,11 +63,11 @@ body{
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: #fff;
-  color: #222;
+  background-color: var(--body-bg);
+  color: var(--text-color);
 }
 
 img{
@@ -32,13 +75,17 @@ img{
   height: auto;
 }
 
+*:focus{
+  outline: 2px dotted var(--purple);
+  outline-offset: 3px;
+} 
 
 /* CONTAINER */
 .container{
   width: 100%;
-  width: 1200px;
-  padding-left: 50px;
-  padding-right: 50px;
+  width: 1192px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -47,4 +94,139 @@ img{
 /* MAIN-CONTENT */
 .main-content{
   flex-grow: 1;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--body-bg);
+}
+
+/* INTRO PAGE */
+.intro-page {
+  display: flex;
+}
+.hero {
+  width: 100%;
+  max-width: 570px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  --text-color: #fff;
+  color: var(--text-color);
+}
+.hero-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column ;
+  align-items: flex-start;
+  padding: 55px 60px;
+  background-image: url(../img/hero-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #222;
+
+}
+.hero-badge {
+  padding: 5px 15px;
+  margin-bottom: 65px;
+  border: 1px solid var(--light);
+  border-radius: 41px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+}
+.hero-heading {
+  margin-bottom: 25px;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 46px;
+}
+.hero-text {
+  font-size: 16px;
+  line-height: 26px;
+}
+.hero-bottom {
+  padding: 28px;
+  background-color: var(--green);
+  text-align: center;
+  font-size: 19px;
+}
+
+
+/* SIGNUP-FORM */
+.signup-form {
+  width: 100%;
+  max-width: 570px;
+  padding: 55px 60px 40px;
+  margin-left: 12px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: var(--light);
+}
+.form-heading {
+  margin: 0;
+  margin-bottom: 65px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 42px;
+}
+.signup-form-fields {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 65px;
+}
+.signup-form-field {
+  padding-top: 15px;
+  padding-bottom: 14px;
+  border: 0;
+  border-bottom: 1px solid #555;
+  color: #555;
+}
+.signup-form-field:not(:last-child){
+  margin-bottom: 20px;
+}
+.signup-form-field:focus{
+  font-weight: 600;
+  border-color: #000;
+  color: #000;
+}
+
+.signup-form-submit {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 8px;
+  display: block;
+  background-color: var(--purple);
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.signup-form-notice {
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+}
+.signup-form-notice-link{
+  color: var(--red);
+  font-weight: 500;
+}
+
+
+
+
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+  .hero-main{
+    background-image: url(../img/hero-bg2x.jpg);
+  }
 }
